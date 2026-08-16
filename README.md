@@ -437,7 +437,7 @@ M.Eng. Media Engineering with AI
 
 Anhalt University of Applied Sciences
 
-📧 Email: *(Add your email)*
+📧 Email: fuad110398@gmail.com
 
 🔗 LinkedIn: https://www.linkedin.com/in/fuad-bin-zafar/
 
