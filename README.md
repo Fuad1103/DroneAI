@@ -205,31 +205,93 @@ The architecture is designed so the software can later be deployed with minimal 
 # 📂 Project Structure
 
 ```
-ai/
-├── decision_engine.py
-├── intelligent_navigation.py
-├── mission_state.py
-├── navigation_controller.py
-├── perception.py
-├── sensor_fusion.py
-├── target_follower.py
-└── target_tracker.py
-
-lidar/
-├── lidar_reader.py
-├── obstacle_detection.py
-├── avoidance.py
-└── lidar_utils.py
-
-drone_control/
-├── connect.py
-├── action.py
-├── mission.py
-└── telemetry.py
-
-simulation/
-└── models/
-    └── lidar_obstacle.sdf
+DroneAI/
+│
+├── README.md
+├── LICENSE
+├── requirements.txt
+├── .gitignore
+│
+├── docs/
+│   ├── setup.md
+│   ├── architecture.md
+│   └── project_progress.md
+│
+├── scripts/
+│   ├── arm.py
+│   ├── disarm.py
+│   ├── takeoff.py
+│   ├── land.py
+│   ├── telemetry.py
+│   ├── mission.py
+│   │
+│   ├── camera_test.py
+│   ├── aruco_test.py
+│   ├── aruco_live.py
+│   ├── qr_test.py
+│   ├── generate_qr.py
+│   ├── yolo_test.py
+│   ├── yolo_live.py
+│   │
+│   ├── lidar_test.py
+│   ├── obstacle_test.py
+│   ├── avoidance_test.py
+│   │
+│   ├── decision_test.py
+│   ├── sensor_fusion_test.py
+│   ├── ai_brain_test.py
+│   ├── intelligent_navigation.py
+│   ├── live_ai_brain.py
+│   ├── target_following.py
+│   ├── autonomous_ai_flight.py
+│   └── autonomous_mission.py
+│
+├── drone_control/
+│   ├── connect.py
+│   ├── action.py
+│   ├── telemetry.py
+│   └── mission.py
+│
+├── vision/
+│   ├── camera_stream.py
+│   ├── aruco_detection.py
+│   ├── qr_detection.py
+│   └── yolo_detection.py
+│
+├── lidar/
+│   ├── __init__.py
+│   ├── lidar_reader.py
+│   ├── lidar_utils.py
+│   ├── obstacle_detection.py
+│   └── avoidance.py
+│
+├── ai/
+│   ├── __init__.py
+│   ├── perception.py
+│   ├── sensor_fusion.py
+│   ├── decision_engine.py
+│   ├── intelligent_navigation.py
+│   ├── navigation_controller.py
+│   ├── mission_state.py
+│   ├── target_tracker.py
+│   └── target_follower.py
+│
+├── config/
+│   └── drone_config.py
+│
+├── simulation/
+│   └── models/
+│       └── lidar_obstacle.sdf
+│
+├── tests/
+│   └── test_connection.py
+│
+├── images/
+│   ├── screenshots/
+│   ├── vision/
+│   └── yolo_results/
+│
+└── logs/
 
 # 🚀 Installation
 
