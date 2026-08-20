@@ -13,13 +13,13 @@
 
 # 📖 Overview
 
-DroneAI is a portfolio-quality autonomous drone project built entirely in simulation using open-source technologies.
+DroneAI is a portfolio-grade autonomous drone platform developed entirely in simulation using open-source technologies.
 
-The project replicates the complete software stack of a modern autonomous drone—from flight control and telemetry to computer vision and AI decision-making—without requiring physical hardware.
+The project combines PX4 Autopilot, Gazebo Harmonic, MAVSDK-Python, OpenCV, YOLO11, and AI-based decision-making to simulate the software stack of a modern autonomous drone.
 
-The long-term goal is to migrate this software with minimal changes to real hardware such as a Raspberry Pi and Pixhawk/Cube Orange flight controller.
+The system performs autonomous flight, waypoint navigation, obstacle detection, AI perception, sensor fusion, target tracking, and complete autonomous missions without requiring physical hardware.
 
----
+The architecture is designed so the software can later be deployed with minimal modifications to real hardware such as Raspberry Pi, Pixhawk/Cube Orange+, cameras, and LiDAR sensors.
 
 # 🎯 Project Objectives
 
@@ -35,57 +35,81 @@ The long-term goal is to migrate this software with minimal changes to real hard
 
 ## 🚁 Flight Control
 
-- ✅ PX4 SITL Connection
-- ✅ Drone Connection (MAVSDK)
-- ✅ Arm
-- ✅ Disarm
-- ✅ Autonomous Takeoff
+- ✅ PX4 SITL
+- ✅ MAVSDK Connection
+- ✅ Arm / Disarm
+- ✅ Automatic Takeoff
 - ✅ Hover
-- ✅ Autonomous Landing
+- ✅ Automatic Landing
+- ✅ Return To Launch (RTL)
 
 ---
 
 ## 📡 Telemetry
 
-- ✅ Position
+- ✅ GPS Position
 - ✅ Relative Altitude
 - ✅ Velocity
 - ✅ Flight Mode
 - ✅ Battery Monitoring
-- ✅ Real-Time Telemetry Logging
+- ✅ Live Telemetry
+- ✅ CSV Logging
 
 ---
 
 ## 🛰 Autonomous Navigation
 
+- ✅ Waypoint Missions
 - ✅ Mission Framework
+- ✅ Mission State Machine
 - ✅ GPS Navigation
-- ✅ Waypoint Mission
-- ✅ Return To Launch (RTL)
-- ✅ Geofence Framework
+- ✅ Offboard Navigation
+- ✅ Return To Launch
+- ✅ Intelligent Navigation Controller
 
 ---
 
 ## 👁 Computer Vision
 
-- ✅ Gazebo Camera Integration
-- ✅ OpenCV Live Streaming
-- ✅ ArUco Marker Detection
+- ✅ Gazebo Camera
+- ✅ OpenCV Streaming
+- ✅ YOLO11 Object Detection
+- ✅ ArUco Detection
 - ✅ QR Code Detection
-- ✅ YOLO Object Detection
-- 🔄 Live YOLO Detection
+- ✅ Live Vision Pipeline
 
 ---
 
-## 🤖 AI (Upcoming)
+## 📡 LiDAR
 
-- ⏳ AI Decision Engine
-- ⏳ Object Tracking
-- ⏳ Autonomous Following
-- ⏳ Obstacle Avoidance
-- ⏳ Autonomous Search Mission
+- ✅ Gazebo 2D LiDAR
+- ✅ LaserScan Processing
+- ✅ Directional Distance Detection
+- ✅ Obstacle Detection
+- ✅ Collision Warning
+- ✅ Autonomous Avoidance
 
 ---
+
+## 🤖 Artificial Intelligence
+
+- ✅ Sensor Fusion
+- ✅ AI Decision Engine
+- ✅ Target Tracking
+- ✅ Intelligent Navigation
+- ✅ Live AI Brain
+- ✅ Autonomous Mission Logic
+
+---
+
+## 🚀 Autonomous Mission
+
+- ✅ Automatic Takeoff
+- ✅ Waypoint Navigation
+- ✅ AI Search Mode
+- ✅ Mission State Machine
+- ✅ RTL
+- ✅ Automatic Landing
 
 # 🏗 System Architecture
 
@@ -134,6 +158,20 @@ The long-term goal is to migrate this software with minimal changes to real hard
 - OpenCV
 - YOLO11
 - NumPy
+### AI
+
+- YOLO11
+- OpenCV
+- NumPy
+- Sensor Fusion
+- AI Decision Engine
+
+### Robotics
+
+- PX4
+- MAVSDK
+- MAVLink
+- Gazebo Harmonic
 
 ### Development
 
@@ -167,59 +205,31 @@ The long-term goal is to migrate this software with minimal changes to real hard
 # 📂 Project Structure
 
 ```
-DroneAI/
-│
-├── README.md
-├── LICENSE
-├── requirements.txt
-├── .gitignore
-│
-├── docs/
-│   ├── setup.md
-│   ├── architecture.md
-│   └── project_progress.md
-│
-├── scripts/
-│   ├── arm.py
-│   ├── disarm.py
-│   ├── takeoff.py
-│   ├── land.py
-│   ├── telemetry.py
-│   ├── mission.py
-│   ├── camera_test.py
-│   ├── aruco_test.py
-│   ├── aruco_live.py
-│   ├── qr_test.py
-│   ├── generate_qr.py
-│   ├── yolo_test.py
-│   └── yolo_live.py
-│
-├── drone_control/
-│   ├── connect.py
-│   ├── action.py
-│   └── telemetry.py
-│
-├── vision/
-│   ├── camera_stream.py
-│   ├── aruco_detection.py
-│   ├── qr_detection.py
-│   └── yolo_detection.py
-│
-├── config/
-│   └── drone_config.py
-│
-├── tests/
-│   └── test_connection.py
-│
-├── images/
-│   ├── screenshots/
-│   ├── vision/
-│   └── yolo_results/
-│
-└── logs/
-```
+ai/
+├── decision_engine.py
+├── intelligent_navigation.py
+├── mission_state.py
+├── navigation_controller.py
+├── perception.py
+├── sensor_fusion.py
+├── target_follower.py
+└── target_tracker.py
 
----
+lidar/
+├── lidar_reader.py
+├── obstacle_detection.py
+├── avoidance.py
+└── lidar_utils.py
+
+drone_control/
+├── connect.py
+├── action.py
+├── mission.py
+└── telemetry.py
+
+simulation/
+└── models/
+    └── lidar_obstacle.sdf
 
 # 🚀 Installation
 
@@ -231,7 +241,7 @@ git clone https://github.com/Fuad1103/DroneAI.git
 cd DroneAI
 ```
 
-Create virtual environment
+Create a virtual environment
 
 ```bash
 python3 -m venv venv
@@ -330,24 +340,50 @@ python3 -m scripts.yolo_live
 ```
 
 ---
+### Autonomous Mission
 
-# 📈 Project Roadmap
+```bash
+python3 -m scripts.autonomous_mission
 
-| Phase | Status |
-|--------|--------|
-| Environment Setup | ✅ Completed |
-| PX4 + Gazebo | ✅ Completed |
-| Flight Control | ✅ Completed |
-| Advanced Telemetry | ✅ Completed |
-| Autonomous Navigation | ✅ Completed |
-| Computer Vision | 🟡 In Progress |
-| AI Decision Engine | ⏳ Planned |
-| LiDAR Navigation | ⏳ Planned |
-| Autonomous Mission Planning | ⏳ Planned |
-| Real Hardware Deployment | ⏳ Planned |
+###Live AI Brain
+python3 -m scripts.live_ai_brain
+
+###LiDAR Test
+python3 -m scripts.lidar_test
+
+###Obstacle Detection
+python3 -m scripts.obstacle_test
+
+###AI Decision Test
+python3 -m scripts.decision_test
+
 
 ---
 
+# Roadmap
+
+Replace with:
+
+| Phase | Status |
+|--------|--------|
+| Phase 1 – Development Environment | ✅ |
+| Phase 2 – PX4 Flight Control | ✅ |
+| Phase 3 – Telemetry System | ✅ |
+| Phase 4 – Autonomous Navigation | ✅ |
+| Phase 5 – Computer Vision | ✅ |
+| Phase 6 – LiDAR & Obstacle Avoidance | ✅ |
+| Phase 7 – AI Decision Engine | ✅ |
+| Phase 8 – Complete Autonomous Mission | ✅ |
+| Phase 9 – Mission Logging & Analytics | 🔄 |
+| Phase 10 – Real Hardware Deployment | ⏳ |
+
+---
+
+# Current Progress
+
+Replace with:
+
+```markdown
 # 📊 Current Progress
 
 ## ✅ Completed
@@ -355,73 +391,57 @@ python3 -m scripts.yolo_live
 - PX4 SITL
 - Gazebo Harmonic
 - MAVSDK Integration
-- Drone Connection
-- Arm
-- Disarm
-- Takeoff
+- Flight Control
+- Autonomous Takeoff
 - Hover
 - Landing
-- Telemetry
-- GPS
-- Mission Framework
-- Gazebo Camera
-- OpenCV Streaming
+- GPS Navigation
+- Waypoint Missions
+- Return-To-Launch
+- Camera Streaming
+- OpenCV
+- YOLO11 Detection
 - ArUco Detection
 - QR Detection
-- Static YOLO Detection
+- LiDAR Processing
+- Obstacle Detection
+- Collision Warning
+- AI Decision Engine
+- Sensor Fusion
+- Intelligent Navigation
+- Target Tracking
+- Complete Autonomous Mission
 
 ---
 
 ## 🔄 Currently Working On
 
-- Live YOLO Detection from Gazebo Camera
-- AI Decision Engine
+- Mission Logging
+- Performance Analytics
+- Mission Replay
+- Portfolio Demo Videos
 
 ---
 
 ## 🎯 Next Milestones
 
-- Object Tracking
-- Person Following
-- Obstacle Avoidance
-- Autonomous Navigation using AI
+- Mission Analytics Dashboard
+- ROS2 Integration
+- SLAM
+- Multi-Drone Coordination
 - Raspberry Pi Deployment
 - Pixhawk Deployment
-
 ---
 
-# 🧠 Skills Demonstrated
+###Skills Demonstrated
+- Sensor Fusion
+- AI Decision Making
+- Autonomous Navigation
+- LiDAR Processing
+- Mission Planning
+- Offboard Control
+- Autonomous Robotics
 
-- Autonomous Drone Development
-- PX4 SITL
-- MAVSDK
-- MAVLink
-- Gazebo Simulation
-- Python
-- Computer Vision
-- OpenCV
-- YOLO
-- ArUco Detection
-- QR Code Detection
-- Linux
-- Git & GitHub
-- Remote Development
-- AI for Robotics
-
----
-
-# 📷 Screenshots
-
-Coming soon
-
-- PX4 Simulation
-- Gazebo World
-- Takeoff
-- Landing
-- Camera Feed
-- YOLO Detection
-
----
 
 # 📹 Demo Video
 
@@ -431,20 +451,20 @@ Coming soon
 
 # 👨‍💻 Author
 
+# 👨‍💻 Author
+
 **Fuad Bin Zafar**
 
-M.Eng. Media Engineering with AI
-
+M.Eng. Media Engineering with AI  
 Anhalt University of Applied Sciences
 
 📧 Email: fuad110398@gmail.com
 
-🔗 LinkedIn: https://www.linkedin.com/in/fuad-bin-zafar/
-
 💻 GitHub: https://github.com/Fuad1103
 
+🌐 Portfolio: https://fuadbinzafar.vercel.app
+
+🔗 LinkedIn: https://www.linkedin.com/in/fuad1103/
 ---
 
 # 📄 License
-
-This project is licensed under the MIT License.
